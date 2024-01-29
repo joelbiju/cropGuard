@@ -4,13 +4,24 @@ import 'package:flutter/material.dart';
 
 class MyResult extends StatefulWidget {
 
-  const MyResult({super.key,});
+  final String dfound;
+  final String dtype;
+  final String dpesticide;
+  final String ddescription;
+
+  const MyResult({super.key, 
+  required this.dfound, 
+  required this.dtype, 
+  required this.dpesticide, 
+  required this.ddescription,
+  });
 
   @override
-  State<MyResult> createState() => _MyResiltState();
+  State<MyResult> createState() => _MyResultState();
 }
 
-class _MyResiltState extends State<MyResult> {
+class _MyResultState extends State<MyResult> {
+
   @override
   Widget build(BuildContext context) {
 
@@ -31,65 +42,112 @@ class _MyResiltState extends State<MyResult> {
         centerTitle: true,
       ),
 
-      backgroundColor: Color.fromRGBO(250,250,250,1),
+      backgroundColor: Color.fromRGBO(248, 248, 248, 1),
 
       body: SafeArea(
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             
+            SizedBox(height: 20,),
             //result text
-            Text('Results',
-            style: TextStyle(
-              color: Colors.black, 
-              fontWeight:FontWeight.w500,
-              fontSize: 20),
+            Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 20),
+              child: Text('Results Obtained',
+              style: TextStyle(
+                color: Colors.black, 
+                fontWeight:FontWeight.w500,
+                fontSize: 20),
+              ),
             ),
-
+        
             //result card
             Card(
-                color: Colors.green,
+                color: Colors.white,
                 surfaceTintColor: Colors.transparent,
                 elevation: 0,
+        
+                child: Padding(
+                  padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 20),
+                  child: Column(
+                    children: [
+                      Row(
+                        children: [
+                          Text('Disease Found:', style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),),
+                          SizedBox(width: 45,),
+                          Text(widget.dfound, style: TextStyle(fontSize: 18, fontWeight: FontWeight.w500),),
+                        ],
+                      ),
+                      SizedBox(height: 3,),
+                  
+                      Row(
+                        children: [
+                          Text('Type of Disease:', style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold,),),
+                          SizedBox(width: 35,),
+                          Text(widget.dtype, style: TextStyle(fontSize: 18, fontWeight: FontWeight.w500),),
+                        ],
+                      ),
+                      SizedBox(height: 3,),
+                  
+                      Row(
+                        children: [
+                          Text('Required Pesticide', style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),),
+                          SizedBox(width: 15,),
+                          Text(widget.dpesticide, style: TextStyle(fontSize: 18, fontWeight: FontWeight.w500),),
+                        ],
+                      ),
+                      SizedBox(height: 10,),
+        
+                      Row(
+                        children: [
+                          Text('Details:', style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold,),),
+                        ],
+                      ),
 
-                child: Column(
-                  children: [
-                    Row(
-                      children: [
-                        Text('Disease Found:', style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),),
-                        SizedBox(width: 5,),
-                        Text('YES/NO', style: TextStyle(fontSize: 18, fontWeight: FontWeight.w400),),
-                      ],
-                    ),
-                    SizedBox(height: 3,),
+                      SizedBox(height: 5,),
 
-                    Row(
-                      children: [
-                        Text('Type of Disease:', style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold,),),
-                        SizedBox(width: 5,),
-                        Text('Rice Blast', style: TextStyle(fontSize: 18, fontWeight: FontWeight.w400),),
-                      ],
-                    ),
-                    SizedBox(height: 3,),
-
-                    Row(
-                      children: [
-                        Text('Required Pesticide', style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),),
-                        SizedBox(width: 5,),
-                        Text('Tricyclazole', style: TextStyle(fontSize: 18, fontWeight: FontWeight.w400),),
-                      ],
-                    ),
-                    SizedBox(height: 3,),
-
-                    Text('description',
-                      textAlign: TextAlign.justify,
-                      style: TextStyle(fontSize: 16,
-                      fontWeight: FontWeight.w400,
-                      color: Colors.grey[400],
-                      ),),
-                  ],
+                      Text(widget.ddescription,
+                        textAlign: TextAlign.justify,
+                        style: TextStyle(fontSize: 16,
+                        fontWeight: FontWeight.w400,
+                        color: Colors.grey[800],
+                        ),),
+                    ],
+                  ),
                 ),
             ),
+
+            SizedBox(height: 15,),
+            
+            //Pesticide text
+            Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                Text('Pesticide Initiation', style: TextStyle(fontSize: 20, fontWeight: FontWeight.w600),),
+              ],
+            ),
+
+            SizedBox(height: 10,),
+            //pesticide initiation button
+            Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                SizedBox(
+                  child: ElevatedButton(
+                    onPressed: (){}, 
+                    style: ElevatedButton.styleFrom(
+                      backgroundColor: Color.fromRGBO(41, 166, 148, 1),
+                      shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(10),
+                      ),
+                      padding: EdgeInsets.symmetric(horizontal: 20, vertical: 10),
+                    ),
+                    child: Text('Activate Now', 
+                    style: TextStyle(fontSize: 18, 
+                    color: Colors.white),),),
+                ),
+              ],
+            )
           ],
         ),
         
