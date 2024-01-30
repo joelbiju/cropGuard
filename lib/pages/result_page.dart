@@ -1,6 +1,7 @@
 // ignore_for_file: prefer_const_constructors, prefer_const_literals_to_create_immutables
 
 import 'package:flutter/material.dart';
+import 'package:crop_guard/util/button_main.dart';
 
 class MyResult extends StatefulWidget {
 
@@ -128,24 +129,12 @@ class _MyResultState extends State<MyResult> {
             ),
 
             SizedBox(height: 10,),
+            
             //pesticide initiation button
             Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                SizedBox(
-                  child: ElevatedButton(
-                    onPressed: (){}, 
-                    style: ElevatedButton.styleFrom(
-                      backgroundColor: Color.fromRGBO(41, 166, 148, 1),
-                      shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(10),
-                      ),
-                      padding: EdgeInsets.symmetric(horizontal: 20, vertical: 10),
-                    ),
-                    child: Text('Activate Now', 
-                    style: TextStyle(fontSize: 18, 
-                    color: Colors.white),),),
-                ),
+                Actbutton(btntext: 'Initiate Pesticide',),
               ],
             )
           ],
