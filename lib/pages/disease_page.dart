@@ -21,7 +21,10 @@ class Diseases extends StatelessWidget {
           },
         ),
         title: const Text('Rice Plant Diseases', 
-        style: TextStyle(color: Colors.black, fontWeight:FontWeight.w500),),
+        style: TextStyle(
+          color: Colors.grey, 
+          fontWeight:FontWeight.w500,
+          fontSize: 18),),
         centerTitle: true,
       ),
 

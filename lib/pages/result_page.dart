@@ -39,7 +39,10 @@ class _MyResultState extends State<MyResult> {
           },
         ),
         title: const Text('Result', 
-        style: TextStyle(color: Colors.black, fontWeight:FontWeight.w500),),
+        style: TextStyle(
+          color: Colors.grey, 
+          fontWeight:FontWeight.w500,
+          fontSize: 18),),
         centerTitle: true,
       ),
 
@@ -129,12 +132,14 @@ class _MyResultState extends State<MyResult> {
             ),
 
             SizedBox(height: 10,),
-            
+
             //pesticide initiation button
             Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                Actbutton(btntext: 'Initiate Pesticide',),
+                Actbutton(btntext: 'Initiate Pesticide',
+                onpressed: () {},
+                ),
               ],
             )
           ],
