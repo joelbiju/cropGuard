@@ -18,9 +18,9 @@ class HomeCard extends StatelessWidget {
   Widget build(BuildContext context) {
     return SizedBox(
                 height: 230,
-                width: MediaQuery.of(context).size.width,
+                width: MediaQuery.of(context).size.width * 0.96,
                 child: Card(
-                  color: Color.fromRGBO(41, 166, 148, 0.5),
+                  color: Color.fromRGBO(24, 103, 112, 1),
                   surfaceTintColor: Colors.transparent,
                   elevation: 0,
                   

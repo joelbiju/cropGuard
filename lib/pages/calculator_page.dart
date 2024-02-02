@@ -178,7 +178,7 @@ class _CalculateState extends State<Calculate> {
                           Row(
                             children: [
                               SizedBox(width: 20,),
-                              Text('Intensity of Disease (0/1):',
+                              Text('Time of Run (in minutes):',
                               style: TextStyle(
                                 color: Colors.black, 
                                 fontWeight:FontWeight.w400,
