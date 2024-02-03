@@ -2,11 +2,14 @@
 
 import 'package:crop_guard/pages/calculator_page.dart';
 import 'package:crop_guard/pages/disease_page.dart';
+import 'package:crop_guard/util/button_main.dart';
 import 'package:crop_guard/util/home_card.dart';
 import 'package:flutter/material.dart';
 
 class MyHome extends StatelessWidget {
-  const MyHome({super.key});
+
+  final String? firstName;
+  const MyHome({super.key, this.firstName});
 
   @override
   Widget build(BuildContext context) {
@@ -41,6 +44,8 @@ class MyHome extends StatelessWidget {
               padding: const EdgeInsets.symmetric(horizontal: 10),
               child: Column(
                 children: [
+
+                  SizedBox(height: 20,),
                   //welcome note
                   Row(
                   children: [
@@ -54,9 +59,9 @@ class MyHome extends StatelessWidget {
               
               Row(
                 children: [
-                  Text('Farmer', style: TextStyle(
-                  color: Colors.black, 
-                  fontWeight:FontWeight.w500,
+                  Text(firstName ?? 'Farmer', style: TextStyle(
+                  color: Colors.grey[600], 
+                  fontWeight:FontWeight.w400,
                   fontSize: 20)
                   ),
                 ],
@@ -86,9 +91,9 @@ class MyHome extends StatelessWidget {
                       child: Align(
                       alignment: Alignment.centerRight,
                       child: Text(
-                        'see all',
+                        'See all',
                         style: TextStyle(
-                        color: Colors.black,
+                        color: Colors.grey[600],
                         fontSize: 18,
                         fontWeight: FontWeight.w400,
                         ),
@@ -136,7 +141,7 @@ class MyHome extends StatelessWidget {
 
               Row(
                 children: [
-                  Text('Hardware Configuration',
+                  Text('Pesticide Calculator',
                       style: TextStyle(
                         fontWeight: FontWeight.w500,
                         fontSize: 18
@@ -145,13 +150,13 @@ class MyHome extends StatelessWidget {
               ),
               SizedBox(height: 5,),
               
-              //hardwaree configuration button
+              //pesticide configuration button
               Row(
                 children: [
                   
                   ElevatedButton(
                     onPressed: (){
-                      // Navigate to disease page
+                      // Navigate to calculator page
                       Navigator.push(
                       context,
                       MaterialPageRoute(builder: (context) => Calculate()),);
@@ -183,6 +188,46 @@ class MyHome extends StatelessWidget {
                   
                 ],
               ),
+              SizedBox(height: 20,),
+
+              //image upload button
+
+              Container(
+                padding: EdgeInsets.symmetric(horizontal: 10, vertical: 20),
+                width: 350,
+                height: 150,
+                decoration: BoxDecoration(
+                  color: Colors.white,
+                  borderRadius: BorderRadius.circular(10),
+                ),
+
+                child: Column(
+                  children: [
+                    Text('Detect Plant Diseases', style: TextStyle(
+                      fontWeight: FontWeight.w500,
+                      fontSize: 18
+                    ),),
+
+                    SizedBox(height: 8,),
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                      children: [
+                        //upload image
+
+                        Actbutton(
+                          btntext: 'Upload', 
+                          onpressed: (){}),
+
+                        //capture image
+                        Actbutton(
+                          btntext: 'Capture', 
+                          onpressed: (){}),
+                      ],
+                    ),
+                  ],
+                ),
+              ),
+
             ],
           ),
             ),
