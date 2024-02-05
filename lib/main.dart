@@ -1,6 +1,6 @@
 // ignore_for_file: prefer_const_constructors
 
-import 'package:crop_guard/pages/calculator_page.dart';
+
 import 'package:crop_guard/pages/disease_page.dart';
 import 'package:crop_guard/pages/home_page.dart';
 import 'package:crop_guard/pages/result_page.dart';
@@ -19,7 +19,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      home: WelcomePage(),
+      home: MyHome(),
       );
   }
 

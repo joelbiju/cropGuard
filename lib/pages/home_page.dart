@@ -1,8 +1,8 @@
 // ignore_for_file: prefer_const_constructors, prefer_const_literals_to_create_immutables
 
-import 'package:crop_guard/pages/calculator_page.dart';
 import 'package:crop_guard/pages/disease_page.dart';
 import 'package:crop_guard/util/button_main.dart';
+import 'package:crop_guard/util/climate_card.dart';
 import 'package:crop_guard/util/home_card.dart';
 import 'package:flutter/material.dart';
 
@@ -45,7 +45,7 @@ class MyHome extends StatelessWidget {
               child: Column(
                 children: [
 
-                  SizedBox(height: 20,),
+                  SizedBox(height: 10,),
                   //welcome note
                   Row(
                   children: [
@@ -67,8 +67,73 @@ class MyHome extends StatelessWidget {
                 ],
               ),
               
-              SizedBox(height: 20,),
+              SizedBox(height: 10,),
+
+              //climate card
+              Container(
+                decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(8),
+                  color: Color.fromRGBO(4, 53, 82, 1),
+                
+                ),
+                padding: EdgeInsets.symmetric(horizontal: 10, vertical: 20),
+                width: MediaQuery.of(context).size.width*0.9,
+                child: Column(
+                  children: [
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.start,
+                      
+                      children: [
+                        //location pin icon
+                        Icon(Icons.location_on, color: Colors.white, size: 30,),
+
+                        SizedBox(width: 5,),
+
+                        //location using location service
+                        Text('Chengannur, Kerala', style: TextStyle(
+                          color: Colors.white,
+                          fontWeight: FontWeight.w500,
+                          fontSize: 18,
+                        ),),
+                      ],
+                      
+                    ),
+
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceAround,
+                      children: [
+                        //location degree from location service
+                        Text('28°C', style: TextStyle(
+                          color: Colors.white,
+                          fontWeight: FontWeight.bold,
+                          fontSize: 28,
+                        ),),
+
+                        //raining cloud icon
+                        Icon(Icons.cloudy_snowing, color: Colors.white, size: 40,),
+                      ],
+                    ),
+
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+
+                      children: [
+                        //humidity column
+                        CliCard(title: 'Humidity', amount: '80%'),
+                        //preciptation column
+                        CliCard(title: 'Precipitation', amount: '5.1ml'),
+                        //pressure column
+                        CliCard(title: 'Pressure', amount: '450hPa'),
+                        //wind column
+                        CliCard(title: 'Wind', amount: '5m/s'),
+                      ],
+                    ),
+                  ],
+                ),
+                
+              ),
               
+              SizedBox(height: 20,),
               //carousel
               Column(
                 children: [
@@ -150,45 +215,7 @@ class MyHome extends StatelessWidget {
               ),
               SizedBox(height: 5,),
               
-              //pesticide configuration button
-              Row(
-                children: [
-                  
-                  ElevatedButton(
-                    onPressed: (){
-                      // Navigate to calculator page
-                      Navigator.push(
-                      context,
-                      MaterialPageRoute(builder: (context) => Calculate()),);
-                    }, 
-
-                  style: ButtonStyle(
-                    minimumSize: MaterialStateProperty.all(Size(390, 60)),
-                    backgroundColor: MaterialStateProperty.all(Color.fromRGBO(41, 166, 148, 1)),
-                    padding: MaterialStateProperty.all(EdgeInsets.symmetric(horizontal: 20, vertical: 15)),
-                    shape: MaterialStateProperty.all(RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(10),
-                    ))
-                  ),
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: [
-                      Text('Configure Now',
-                      style: TextStyle(
-                        color: Colors.white,
-                        fontWeight: FontWeight.w500,
-                        fontSize: 18
-                      ),
-                      ),
-                      SizedBox(width: 30,),
-                      Icon(Icons.arrow_forward, color: Colors.white, size: 20,)
-                    ],
-                  ),
-                  ),
-                  
-                ],
-              ),
-              SizedBox(height: 20,),
+              
 
               //image upload button
 
