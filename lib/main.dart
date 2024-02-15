@@ -1,7 +1,8 @@
-// ignore_for_file: prefer_const_constructors
+// ignore_for_file: prefer_const_constructors, unused_import
 
 
 import 'package:crop_guard/pages/disease_page.dart';
+import 'package:crop_guard/pages/email_page.dart';
 import 'package:crop_guard/pages/home_page.dart';
 import 'package:crop_guard/pages/result_page.dart';
 import 'package:crop_guard/pages/signin_page.dart';
@@ -19,7 +20,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      home: Signin(),
+      home: EmailAccount(),
       );
   }
 
