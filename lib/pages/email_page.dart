@@ -25,34 +25,18 @@ class _EmailAccountState extends State<EmailAccount> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        backgroundColor: Colors.transparent,
-        elevation: 0,
-        leading: IconButton(
-          icon: Icon(Icons.arrow_back_ios, color: Colors.black,),
-          onPressed: () {
-            Navigator.pop(context);
-          },
-        ),
-        title: const Text('Create', 
-        style: TextStyle(
-          color: Colors.grey, 
-          fontWeight:FontWeight.w500,
-          fontSize: 18),),
-        centerTitle: true,
-      ),
-
+      
       backgroundColor: Color.fromRGBO(248, 248, 248, 1),
-
       body: SafeArea(
         child: SizedBox.expand(
           child: SingleChildScrollView(
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.center,
               children: [
+                SizedBox(height: 30,),
                 Image.asset('lib/images/email_form.png',
                   height: 200,
-                  width: 200,
+                  width: 250,
                 ),
                 Text('Create an account',
                   style: TextStyle(
@@ -65,10 +49,17 @@ class _EmailAccountState extends State<EmailAccount> {
             
                 Container(
                   decoration: BoxDecoration(
-                    color: Colors.white,
-                    borderRadius: BorderRadius.circular(10),
+                    color: Color.fromRGBO(215, 238, 242, 0.5),
+                    borderRadius: BorderRadius.circular(30),
+                    boxShadow: [
+                      BoxShadow(
+                        color: Colors.grey.withOpacity(0.03),
+                        spreadRadius: 5,
+                        blurRadius: 7,
+                        offset: Offset(0, 3),
+                      ),
+                    ],
                   ),
-                  height: 430,
                   width: MediaQuery.of(context).size.width*0.9,
                   child: Padding(
                     padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 30),
@@ -105,6 +96,7 @@ class _EmailAccountState extends State<EmailAccount> {
                           errorStyle: TextStyle(
                             color: Colors.red,
                           ),
+                          errorText: _submitButtonClicked && !_isEmailValid? 'This field is required' : null,
                           ),
                         ),
                         SizedBox(height: 20,),
@@ -141,7 +133,8 @@ class _EmailAccountState extends State<EmailAccount> {
                           errorStyle: TextStyle(
                             color: Colors.red,
                           ),
-                          )
+                          errorText: _submitButtonClicked && !_isPasswordValid ? 'This field is required' : null,
+                          ),
                         ),
                         SizedBox(height: 20,),
                               
@@ -178,12 +171,26 @@ class _EmailAccountState extends State<EmailAccount> {
                           errorStyle: TextStyle(
                             color: Colors.red,
                           ),
+                          errorText: _submitButtonClicked && !_isConfirmPasswordValid ? 'Passwords do not match': null,
                           ),
                         ),
                         SizedBox(height: 40,),
             
                         Actbutton(btntext: 'Submit', 
                         onpressed: (){
+                          setState(() {
+                              _submitButtonClicked = true;
+                            });
+                          if (_isEmailValid &&
+                                _isPasswordValid &&
+                                _isConfirmPasswordValid) {
+                              // All fields are valid, proceed with submission
+                              print('valid submit');
+                              // Your submission logic here
+                            } else {
+                              // Some fields are invalid, handle accordingly
+                              print('invalid submit');
+                            }
                         })
                       ],
                     ),

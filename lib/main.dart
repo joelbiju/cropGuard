@@ -6,6 +6,7 @@ import 'package:crop_guard/pages/email_page.dart';
 import 'package:crop_guard/pages/home_page.dart';
 import 'package:crop_guard/pages/result_page.dart';
 import 'package:crop_guard/pages/signin_page.dart';
+import 'package:crop_guard/pages/splash_screen.dart';
 import 'package:flutter/material.dart';
 import 'pages/welcome_page.dart';
 
@@ -20,7 +21,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      home: EmailAccount(),
+      home: SplashScreen(),
       );
   }
 

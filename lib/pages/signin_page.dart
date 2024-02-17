@@ -1,5 +1,6 @@
 // ignore_for_file: prefer_const_constructors
 
+import 'package:crop_guard/pages/email_page.dart';
 import 'package:flutter/material.dart';
 import 'package:sign_button/sign_button.dart';
 
@@ -73,7 +74,13 @@ class _SigninState extends State<Signin> {
                   btnTextColor: Colors.grey,
                   btnColor: Colors.white,
                   btnText: 'Continue with Email',
-                  onPressed: () {},
+                  onPressed: () {
+                    //push to email_page
+                    Navigator.push(
+                            context,
+                            MaterialPageRoute(builder: (context) => EmailAccount()),
+                        );
+                  },
                   shape: RoundedRectangleBorder(
                     borderRadius: BorderRadius.circular(15),
                   ),
