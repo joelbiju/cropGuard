@@ -1,5 +1,6 @@
 // ignore_for_file: prefer_const_constructors, prefer_const_literals_to_create_immutables
 
+import 'package:crop_guard/pages/camera_screen.dart';
 import 'package:crop_guard/pages/disease_page.dart';
 import 'package:crop_guard/util/button_main.dart';
 import 'package:crop_guard/util/climate_card.dart';
@@ -312,16 +313,17 @@ class _MyHomeState extends State<MyHome> {
                       Row(
                         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                         children: [
-                          //upload image
-          
-                          Actbutton(
-                            btntext: 'Upload', 
-                            onpressed: (){}),
-          
                           //capture image
                           Actbutton(
-                            btntext: 'Capture', 
-                            onpressed: (){}),
+                            btntext: 'Select Image', 
+                            //send to camera screen
+                            onpressed: (){
+                              Navigator.push(
+                                context,
+                                MaterialPageRoute(builder: (context) => CameraScreen()),
+                              );
+
+                            }),
                         ],
                       ),
                     ],

@@ -1,6 +1,7 @@
 // ignore_for_file: prefer_const_constructors, unused_import
 
 
+import 'package:crop_guard/pages/camera_screen.dart';
 import 'package:crop_guard/pages/disease_page.dart';
 import 'package:crop_guard/pages/email_page.dart';
 import 'package:crop_guard/pages/home_page.dart';
@@ -21,7 +22,8 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      home: SplashScreen(),
+      home: MyHome(),
+      //by default the home is splashScreen
       );
   }
 
