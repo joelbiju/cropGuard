@@ -1,5 +1,6 @@
 # crop_guard
 
+Put the model in '../assets/' and it will work
 A new Flutter project.
 
 ## Getting Started
