@@ -71,7 +71,7 @@ class _CameraScreenState extends State<CameraScreen> {
           final response2 = await Dio(
                   BaseOptions(headers: {'Content-Type': 'multipart/form-data'}))
               .post(
-            url1,
+            url2,
             data: formData,
           );
 
