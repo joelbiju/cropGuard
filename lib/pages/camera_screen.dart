@@ -67,12 +67,16 @@ class _CameraScreenState extends State<CameraScreen> {
         int result1 = response1.data["prediction"] ?? -1;
 
         if (result1 == 1) {
+          var formData2 = FormData.fromMap({
+            'file': await MultipartFile.fromFile(imageFile.path,
+                filename: imageFile.path.split('/').last),
+          });
           // If the result is 0, send the image to the second ngrok server URL
           final response2 = await Dio(
                   BaseOptions(headers: {'Content-Type': 'multipart/form-data'}))
               .post(
             url2,
-            data: formData,
+            data: formData2,
           );
 
           if (response2.statusCode == 200) {
