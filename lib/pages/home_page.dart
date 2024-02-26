@@ -1,4 +1,4 @@
-// ignore_for_file: prefer_const_constructors, prefer_const_literals_to_create_immutables
+// ignore_for_file: prefer_const_constructors, prefer_const_literals_to_create_immutables, must_be_immutable
 
 import 'package:crop_guard/pages/camera_screen.dart';
 import 'package:crop_guard/pages/disease_page.dart';
@@ -8,9 +8,11 @@ import 'package:crop_guard/util/home_card.dart';
 import 'package:flutter/material.dart';
 
 class MyHome extends StatefulWidget {
-  final String? firstName;
+  
+  String? firstName='Farmer';
+  
 
-  const MyHome({super.key, this.firstName});
+  MyHome({super.key});
 
   @override
   State<MyHome> createState() => _MyHomeState();
@@ -71,7 +73,7 @@ class _MyHomeState extends State<MyHome> {
                 
                 Row(
                   children: [
-                    Text(widget.firstName ?? 'Farmer', style: TextStyle(
+                    Text(widget.firstName?? '', style: TextStyle(
                     color: Colors.grey[600], 
                     fontWeight:FontWeight.w400,
                     fontSize: 20)
@@ -200,11 +202,6 @@ class _MyHomeState extends State<MyHome> {
                             ),
                           HomeCard(
                             cardNumber: '04', 
-                            cardTitle: 'Leaf Smut', 
-                            cardDesc: "Leaf smut, in rice plants is the result of an infection by the Ustilaginoidea virens fungus. The disease is marked by the appearance of small, initially green to whitish spore balls on rice panicles, which subsequently change into smoky gray to dark green or black formations."
-                            ),
-                          HomeCard(
-                            cardNumber: '05', 
                             cardTitle: 'Tungro', 
                             cardDesc: "Tungro is a viral disease of rice that is transmitted by leafhoppers. It is caused by two viruses: rice tungro spherical virus (RTSV) and rice tungro bacilliform virus (RTBV). This viral infection manifests in rice plants as leaf discoloration (yellowing or reddening), stunted growth leading to significant yield losses."
                             ),
@@ -216,6 +213,7 @@ class _MyHomeState extends State<MyHome> {
                 
                 SizedBox(height: 20,),
           
+        //land area
                 Row(
                   children: [
                     Text('Area of Land',

@@ -1,8 +1,10 @@
-// ignore_for_file: prefer_const_constructors
+// ignore_for_file: prefer_const_constructors, use_build_context_synchronously
 
-import 'package:crop_guard/pages/email_page.dart';
+import 'package:crop_guard/pages/home_page.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:sign_button/sign_button.dart';
+import 'package:google_sign_in/google_sign_in.dart';
 
 
 class Signin extends StatefulWidget {
@@ -10,6 +12,29 @@ class Signin extends StatefulWidget {
 
   @override
   State<Signin> createState() => _SigninState();
+}
+
+Future<void> _signInWithGoogle(BuildContext context) async {
+    try {
+      final GoogleSignIn googleSignIn = GoogleSignIn();
+      final GoogleSignInAccount? googleSignInAccount = await googleSignIn.signIn();
+
+      if (googleSignInAccount != null) {
+        // Google Sign-In successful, navigate to the next screen
+        Navigator.push(
+          context,
+          MaterialPageRoute(
+            builder: (context) => MyHome(),
+          ),
+        );
+      } else {
+        // Google Sign-In failed
+        ScaffoldMessenger.of(context).showSnackBar(SnackBar(content: Text('Google Sign-In failed')));
+      }
+    } catch (error) {
+      print('Error signing in with Google: $error');
+      ScaffoldMessenger.of(context).showSnackBar(SnackBar(content: Text('Error signing in with Google')));
+    }
 }
 
 class _SigninState extends State<Signin> {
@@ -59,7 +84,9 @@ class _SigninState extends State<Signin> {
                   buttonSize: ButtonSize.medium,
                   btnTextColor: Colors.grey,
                   btnColor: Colors.white,
-                  onPressed: () {},
+                  onPressed: () {
+                    _signInWithGoogle(context);
+                  },
                   shape: RoundedRectangleBorder(
                     borderRadius: BorderRadius.circular(15),
                   ),
@@ -68,24 +95,24 @@ class _SigninState extends State<Signin> {
                   SizedBox(height: 15,),
                         
                   //continue with email button,
-                  SignInButton(
-                  buttonType: ButtonType.mail,
-                  buttonSize: ButtonSize.medium,
-                  btnTextColor: Colors.grey,
-                  btnColor: Colors.white,
-                  btnText: 'Continue with Email',
-                  onPressed: () {
-                    //push to email_page
-                    Navigator.push(
-                            context,
-                            MaterialPageRoute(builder: (context) => EmailAccount()),
-                        );
-                  },
-                  shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(15),
-                  ),
-                  width: 260,
-                  ),
+                  // SignInButton(
+                  // buttonType: ButtonType.mail,
+                  // buttonSize: ButtonSize.medium,
+                  // btnTextColor: Colors.grey,
+                  // btnColor: Colors.white,
+                  // btnText: 'Continue with Email',
+                  // onPressed: () {
+                  //   //push to email_page
+                  //   Navigator.push(
+                  //           context,
+                  //           MaterialPageRoute(builder: (context) => EmailAccount()),
+                  //       );
+                  // },
+                  // shape: RoundedRectangleBorder(
+                  //   borderRadius: BorderRadius.circular(15),
+                  // ),
+                  // width: 260,
+                  // ),
                   SizedBox(height: 15,),
                 ],
                 ),
